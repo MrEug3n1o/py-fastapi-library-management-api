@@ -17,7 +17,7 @@ class DBAuthor(Base):
 
 
 class DBBook(Base):
-    __tablename__ = "book"
+    __tablename__ = "books"
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
