@@ -4,8 +4,8 @@ from typing import Optional
 
 import crud
 import schemas
-from db.database import SessionLocal, engine
-from db.models import Base
+from database import SessionLocal, engine
+from models import Base
 
 app = FastAPI()
 

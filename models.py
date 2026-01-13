@@ -3,11 +3,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, ForeignKey
 from sqlalchemy import Date
 
-from db.database import Base
+from database import Base
 
 
 class DBAuthor(Base):
-    __tablename__ = "author"
+    __tablename__ = "authors"
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False, unique=True)
@@ -23,5 +23,5 @@ class DBBook(Base):
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     summary: Mapped[str] = mapped_column(String(255), nullable=False)
     publication_date: Mapped[date] = mapped_column(Date, nullable=False)
-    author_id: Mapped[int] = mapped_column(ForeignKey("author.id"))
+    author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"))
     author: Mapped["DBAuthor"] = relationship(back_populates="books")
